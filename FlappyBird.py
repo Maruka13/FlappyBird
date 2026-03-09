@@ -13,3 +13,6 @@ IMAGENS_PASSARO = [
     pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "bird2.png"))),
     pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "bird3.png"))),
 ]
+
+pygame.font.init()
+FONTE_PONTOS = pygame.font.SysFont("arial", 50)
