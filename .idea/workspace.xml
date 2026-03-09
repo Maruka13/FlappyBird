@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc997a12-1b87-4f58-b93f-a1728f968dc9" name="Changes" comment="docs: import initial sprites and background images">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="fc997a12-1b87-4f58-b93f-a1728f968dc9" name="Changes" comment="feat: define game constants and scale initial assets">
       <change beforePath="$PROJECT_DIR$/FlappyBird.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlappyBird.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -91,7 +90,7 @@
       <option name="presentableId" value="Default" />
       <updated>1773066492974</updated>
       <workItem from="1773066493968" duration="2729000" />
-      <workItem from="1773069408635" duration="3430000" />
+      <workItem from="1773069408635" duration="3867000" />
     </task>
     <task id="LOCAL-00001" summary="innitial commit">
       <option name="closed" value="true" />
@@ -109,7 +108,15 @@
       <option name="project" value="LOCAL" />
       <updated>1773067812856</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="feat: define game constants and scale initial assets">
+      <option name="closed" value="true" />
+      <created>1773079757666</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1773079757666</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -118,6 +125,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="innitial commit" />
     <MESSAGE value="docs: import initial sprites and background images" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs: import initial sprites and background images" />
+    <MESSAGE value="feat: define game constants and scale initial assets" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: define game constants and scale initial assets" />
   </component>
 </project>
