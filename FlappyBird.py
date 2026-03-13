@@ -34,6 +34,13 @@ class Passaro:
         self.contagem_imagem = 0  # qual img está usando no momento
         self.imagem = IMGS[0]
 
+    #no pygame = eixo x cresce p/ direita e y p/ baixo, se direção contraria: valor negativo
+    def pular(self):
+        self.velocidade = -10.5 #pula pra cima no y
+        self.tempo = 0
+        self.altura = self.y
+
+
 class Cano:
     pass
 
