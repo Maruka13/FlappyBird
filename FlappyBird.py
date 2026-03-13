@@ -40,6 +40,22 @@ class Passaro:
         self.tempo = 0
         self.altura = self.y
 
+    def mover(self):
+        # calcular o deslocamento (S=so+vot+at²/2)
+        self.tempo += 1
+        deslocamento = 1.5 * (self.tempo**2) + self.velocidade * self.tempo
+
+        # restringir o deslocamento
+        if deslocamento > 16: #pixels
+            deslocamento = 16
+        elif deslocamento < 0:
+            deslocamento -=2
+
+        self.y += deslocamento
+
+        # angulo passaro
+
+
 
 class Cano:
     pass
