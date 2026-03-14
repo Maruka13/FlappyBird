@@ -70,6 +70,7 @@ class Passaro:
         # def qual img do pássaro usar
         self.contagem_imagem +=1
 
+        # ciclo de animação: asa p cima, meio, para baixo, meio e repete
         if self.contagem_imagem < self.TEMPO_ANIMACAO:
             self.imagem = self.IMGS[0]
         elif self.contagem_imagem < self.TEMPO_ANIMACAO*2:
@@ -83,6 +84,10 @@ class Passaro:
             self.contagem_imagem = 0
 
         # não bater asa enquanto cai
+        if self.angulo <= -80:
+            self.imagem = self.IMGS[1]
+            # garante que a próxima batida não seja imediata
+            self.contagem_imagem = self.TEMPO_ANIMACAO*2
 
         # desenhar a img
 
