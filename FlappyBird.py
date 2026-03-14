@@ -32,7 +32,7 @@ class Passaro:
         self.altura = self.y
         self.tempo = 0
         self.contagem_imagem = 0  # qual img está usando no momento
-        self.imagem = IMGS[0]
+        self.imagem = self.IMGS[0]
 
     #no pygame = eixo x cresce p/ direita e y p/ baixo, se direção contraria: valor negativo
     def pular(self):
@@ -65,6 +65,26 @@ class Passaro:
                 if self.angulo > -90:
                     self.angulo -= self.VELOCIDADE_ROTACAO
 
+    def desenhar(self):
+
+        # def qual img do pássaro usar
+        self.contagem_imagem +=1
+
+        if self.contagem_imagem < self.TEMPO_ANIMACAO:
+            self.imagem = self.IMGS[0]
+        elif self.contagem_imagem < self.TEMPO_ANIMACAO*2:
+            self.imagem = self.IMGS[1]
+        elif self.contagem_imagem < self.TEMPO_ANIMACAO*3:
+            self.imagem = self.IMGS[2]
+        elif self.contagem_imagem < self.TEMPO_ANIMACAO*4:
+            self.imagem = self.IMGS[1]
+        elif self.contagem_imagem >= self.TEMPO_ANIMACAO*4 + 1:
+            self.imagem = self.IMGS[0]
+            self.contagem_imagem = 0
+
+        # não bater asa enquanto cai
+
+        # desenhar a img
 
 class Cano:
     pass
