@@ -121,7 +121,7 @@ class Cano:
         # gera altura random p o meio do vão entre canos
         self.altura = random.randrange(50, 450)
         # calc pos do cano de cima (altura do vão menos altura do próprio cano)
-        self.pos_base = self.altura - self.CANO_TOPO.get_height()
+        self.pos_topo = self.altura - self.CANO_TOPO.get_height()
         # calc pos do cano de baixo (altura do vão mais a dist definida)
         self.pos_base = self.altura + self.DISTANCIA
 
