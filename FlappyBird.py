@@ -41,6 +41,7 @@ class Passaro:
         self.altura = self.y
 
     def mover(self):
+
         # calcular o deslocamento (S=so+vot+at²/2)
         self.tempo += 1
         deslocamento = 1.5 * (self.tempo**2) + self.velocidade * self.tempo
@@ -49,12 +50,20 @@ class Passaro:
         if deslocamento > 16: #pixels
             deslocamento = 16
         elif deslocamento < 0:
-            deslocamento -=2
+            deslocamento -=2 # ajuste p tornar o pulo menos "pesado" no topo
 
         self.y += deslocamento
 
         # angulo passaro
-
+        # se o pássaro estiver subindo ou se ainda estiver acima do ponto inicial do pulo
+        if deslocamento < 0 or self.y < (self.altura + 50):
+            # garante que ele não incline mais do que a rotação máxima (25 graus)
+            if self.angulo < self.ROTACAO_MAXIMA:
+                self.angulo = self.ROTACAO_MAXIMA
+            else:
+                # se ele estiver caindo, rotaciona o bico para baixo até ficar vertical (-90 graus)
+                if self.angulo > -90:
+                    self.angulo -= self.VELOCIDADE_ROTACAO
 
 
 class Cano:
