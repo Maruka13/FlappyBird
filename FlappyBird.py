@@ -99,6 +99,10 @@ class Passaro:
         # renderiza img final na tela usando a posição do topo-esquerdo do retângulo
         tela.blit(imagem_rotacionada, retangulo.topleft)
 
+    def get_mask(self):
+        # cria mask de colisão baseada nos px reais da img, detecta colisão apenas quando os px do bird encostam em algo
+        pygame.mask.from_surface(self.imagem)
+
 class Cano:
     pass
 
