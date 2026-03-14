@@ -65,7 +65,7 @@ class Passaro:
                 if self.angulo > -90:
                     self.angulo -= self.VELOCIDADE_ROTACAO
 
-    def desenhar(self):
+    def desenhar(self, tela):
 
         # def qual img do pássaro usar
         self.contagem_imagem +=1
@@ -90,6 +90,14 @@ class Passaro:
             self.contagem_imagem = self.TEMPO_ANIMACAO*2
 
         # desenhar a img
+        # rotacionar a imagem do pássaro
+        imagem_rotacionada = pygame.transform.rotate(self.imagem, self.angulo)
+        # define centro da img original p servir de eixo na rotação
+        pos_centro_imagem = self.imagem.get_rect(topleft=(self.x, self.y)).center
+        # cria novo retângulo baseado na img rotacionada, mantendo o centro fixo
+        retangulo = imagem_rotacionada.get.rect(center=pos_centro_imagem)
+        # renderiza img final na tela usando a posição do topo-esquerdo do retângulo
+        tela.blit(imagem_rotacionada, retangulo.topleft)
 
 class Cano:
     pass
