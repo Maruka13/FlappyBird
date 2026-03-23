@@ -136,8 +136,8 @@ class Cano:
     def colidir(self, passaro):
         passaro_mask = passaro.get_mask()
         # cria as masks para os canos sup e infr com base nas imgs
-        topo_mask = pygame.mask.from_surface(passaro.CANO_TOPO)
-        base_mask = pygame.mask.from_surface(passaro.CANO_BASE)
+        topo_mask = pygame.mask.from_surface(self.CANO_TOPO)
+        base_mask = pygame.mask.from_surface(self.CANO_BASE)
         # calcula a dist (offset) entre o pássaro e o cano do topo e da base
         distancia_topo = (self.x - passaro.x, self.pos_topo - round(passaro.y))
         distancia_base = (self.x - passaro.x, self.pos_base - round(passaro.y))
