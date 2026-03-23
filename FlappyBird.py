@@ -220,6 +220,28 @@ def main():
                     for passaro in passaros:
                         passaro.pular()
 
+        # movimento
+        for passaro in passaros:
+            passaro.mover()
+        chao.mover()
+
+        adicionar_cano = False
+        remover_canos = []
+        for cano in canos:
+            for i, passaro in enumerate(passaros):
+                # verif colisão e remove o bird se necessario
+                if cano.colidir(passaro):
+                    passaros.pop(i)
+                # verif se passou p marcar pontuação e add cano na tela
+                if not cano.passou and passaro.x > cano.x:
+                    cano.passou = True
+                    adicionar_cano = True
+            cano.mover()
+
+            # verif se o cano saiu da tela para removê-lo
+            if cano.x + cano.CANO_TOPO.get_width() < 0:
+                remover_canos.append(cano) # add o cano à lista de remoção para limpar a memória
+
 
 
 
