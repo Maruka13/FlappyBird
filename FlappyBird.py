@@ -151,7 +151,26 @@ class Cano:
         else:
             return False
 
-
-
 class Chao:
-    pass
+    VELOCIDADE = 5
+    LARGURA = IMAGEM_CHAO.get_width()
+    IMAGEM = IMAGEM_CHAO
+
+    def __init__(self, y):
+        self.y = y
+        # inicia a img 1 na posição 0
+        self.x1 = 0
+        # inicia a img 2 logo após a 1 para criar continuidade
+        self.x2 = self.LARGURA
+
+    def mover(self):
+        # move as duas partes do chão p/ a esq com base na velocidade
+        self.x1 -= self.VELOCIDADE
+        self.x2 -= self.VELOCIDADE
+
+        # qnd a img 1 sai pela esq, a img 2 já se reposiciona atras dela e assim continua
+        if self.x1 + self.LARGURA < 0:
+            self.x1 = self.x1 + self.LARGURA
+        if  self.x2 + self.LARGURA < 0:
+            self.x2 = self.x2 + self.LARGURA
+
