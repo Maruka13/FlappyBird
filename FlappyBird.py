@@ -95,7 +95,7 @@ class Passaro:
         # define centro da img original p servir de eixo na rotação
         pos_centro_imagem = self.imagem.get_rect(topleft=(self.x, self.y)).center
         # cria novo retângulo baseado na img rotacionada, mantendo o centro fixo
-        retangulo = imagem_rotacionada.get.rect(center=pos_centro_imagem)
+        retangulo = imagem_rotacionada.get_rect(center=pos_centro_imagem)
         # renderiza img final na tela usando a posição do topo-esquerdo do retângulo
         tela.blit(imagem_rotacionada, retangulo.topleft)
 
