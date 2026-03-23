@@ -174,3 +174,7 @@ class Chao:
         if  self.x2 + self.LARGURA < 0:
             self.x2 = self.x2 + self.LARGURA
 
+    def desenhar (self, tela):
+        # renderiza as duas partes do chão simultaneamente para evitar espaços vazios
+        tela.blit(self.IMAGEM, (self.x1, self.y))
+        tela.blit(self.IMAGEM, (self.x2, self.y))
