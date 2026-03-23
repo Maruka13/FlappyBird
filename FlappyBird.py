@@ -242,6 +242,13 @@ def main():
             if cano.x + cano.CANO_TOPO.get_width() < 0:
                 remover_canos.append(cano) # add o cano à lista de remoção para limpar a memória
 
+            # verif se o bird passou pelo cano (flag add cano ativada)
+            if adicionar_cano:
+                pontos += 1
+                canos.append(Cano(600))
+            for cano in remover_canos:
+                canos.remove(cano) # remove efetivamente o objeto da lista principal de canos
+
 
 
 
