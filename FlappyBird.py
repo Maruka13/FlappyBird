@@ -125,5 +125,14 @@ class Cano:
         # calc pos do cano de baixo (altura do vão mais a dist definida)
         self.pos_base = self.altura + self.DISTANCIA
 
+    def mover(self):
+        self.x -= self.VELOCIDADE
+
+    def desenhar(self, tela):
+        # Renderiza os canos (topo e base) na superfície de exibição
+        tela.blit(self.CANO_TOPO, (self.x, self.pos_topo))
+        tela.blit(self.CANO_BASE, (self.x, self.pos_base))
+
+
 class Chao:
     pass
