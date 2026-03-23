@@ -101,7 +101,7 @@ class Passaro:
 
     def get_mask(self):
         # cria mask de colisão baseada nos px reais da img, detecta colisão apenas quando os px do bird encostam em algo
-        pygame.mask.from_surface(self.imagem)
+        return pygame.mask.from_surface(self.imagem)
 
 class Cano:
     DISTANCIA = 200  # dist entre os canos
