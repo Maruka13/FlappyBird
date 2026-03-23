@@ -196,3 +196,12 @@ def desenhar_tela(tela, passaros, canos, chao, pontos):
     chao.desenhar(tela)
     # att a tela para exibir as mudanças deste frame
     pygame.display.update()
+
+def main():
+    passaros = [Passaro(230, 350)]  # cria lista de pássaros (suporta múltiplos pássaros para IA no futuro)
+    chao = Chao(730)     # instancia o objeto do chão na altura 730
+    canos = [Cano(700)]  # cria lista de canos iniciando com o primeiro cano na posição 700
+    tela = pygame.display.set_mode((TELA_LARGURA, TELA_LARGURA))  # config a janela do jogo com as dimensões definidas
+    pontos = 0  # inicializa o contador de pontos
+    relogio = pygame.time.Clock()   # objeto de relógio para controlar a taxa de quadros (FPS)
+
