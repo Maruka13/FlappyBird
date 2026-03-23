@@ -178,3 +178,21 @@ class Chao:
         # renderiza as duas partes do chão simultaneamente para evitar espaços vazios
         tela.blit(self.IMAGEM, (self.x1, self.y))
         tela.blit(self.IMAGEM, (self.x2, self.y))
+
+def desenhar_tela(tela, passaros, canos, chao, pontos):
+    # desenha a img de fundo na posição inicial (0, 0)
+    tela.blit(IMAGEM_BACKGROUND, (0, 0))
+    # renderiza cada pássaro e cada cano das listas de ambos
+    for passaro in passaros:
+        passaro.desenhar(tela)
+    for cano in canos:
+        cano.desenhar(tela)
+
+    # rend texto da pontuação na tela (cor branca, anti-aliasing ativado)
+    texto = FONTE_PONTOS.render(f"Pontuação: {pontos}", 1, (255, 255, 255))
+    # posiciona o texto no canto superior direito da tela
+    tela.blit(texto, (TELA_LARGURA - 10 - texto.get_width(), 10))
+    # desenha o chão (por cima dos canos para esconder a base deles)
+    chao.desenhar(tela)
+    # att a tela para exibir as mudanças deste frame
+    pygame.display.update()
