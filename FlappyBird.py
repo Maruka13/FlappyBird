@@ -201,7 +201,27 @@ def main():
     passaros = [Passaro(230, 350)]  # cria lista de pássaros (suporta múltiplos pássaros para IA no futuro)
     chao = Chao(730)     # instancia o objeto do chão na altura 730
     canos = [Cano(700)]  # cria lista de canos iniciando com o primeiro cano na posição 700
-    tela = pygame.display.set_mode((TELA_LARGURA, TELA_LARGURA))  # config a janela do jogo com as dimensões definidas
+    tela = pygame.display.set_mode((TELA_LARGURA, TELA_ALTURA))  # config a janela do jogo com as dimensões definidas
     pontos = 0  # inicializa o contador de pontos
     relogio = pygame.time.Clock()   # objeto de relógio para controlar a taxa de quadros (FPS)
 
+    rodando = True
+    while rodando:
+        relogio.tick(30) # taxa de fps=30
+
+        # percorre todos os eventos detectados pelo Pygame (teclado, mouse, etc)
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                rodando = False
+                pygame.quit()
+                quit()
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:
+                    for passaro in passaros:
+                        passaro.pular()
+
+
+
+
+
+        desenhar_tela(tela, passaros, canos, chao, pontos)
