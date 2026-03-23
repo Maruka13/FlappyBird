@@ -249,8 +249,9 @@ def main():
             for cano in remover_canos:
                 canos.remove(cano) # remove efetivamente o objeto da lista principal de canos
 
-
-
-
+            # se o bir bater no chão ou no teto
+            for i, passaro in enumerate(passaros):
+                if (passaro.y + passaro.imagem.get_height()) > chao.y or passaro.y < 0:
+                    passaros.pop(i)
 
         desenhar_tela(tela, passaros, canos, chao, pontos)
