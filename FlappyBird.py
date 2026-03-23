@@ -255,3 +255,7 @@ def main():
                     passaros.pop(i)
 
         desenhar_tela(tela, passaros, canos, chao, pontos)
+
+# garante que o jogo só inicie se este arquivo for executado diretamente
+if __name__ == '__main__':
+    main()
