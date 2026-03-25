@@ -3,6 +3,9 @@ import os
 import random
 import neat
 
+ai_jogando = True
+geracao = 0
+
 TELA_LARGURA = 500
 TELA_ALTURA = 800
 
@@ -193,6 +196,11 @@ def desenhar_tela(tela, passaros, canos, chao, pontos):
     texto = FONTE_PONTOS.render(f"Pontuação: {pontos}", 1, (255, 255, 255))
     # posiciona o texto no canto superior direito da tela
     tela.blit(texto, (TELA_LARGURA - 10 - texto.get_width(), 10))
+      
+    if ai_jogando:
+        texto = FONTE_PONTOS.render(f"Geração: {geracao}", 1, (255, 255, 255))
+        tela.blit(texto, (10, 10))
+
     # desenha o chão (por cima dos canos para esconder a base deles)
     chao.desenhar(tela)
     # att a tela para exibir as mudanças deste frame
