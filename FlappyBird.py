@@ -241,12 +241,21 @@ def main(genomas, config): #fitness function
                 rodando = False
                 pygame.quit()
                 quit()
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SPACE:
-                    for passaro in passaros:
-                        passaro.pular()
+            if not ai_jogando:
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        for passaro in passaros:
+                            passaro.pular()
+        indice_cano = 0
+        if len(passaros) > 0:
+            # se o bird já passou do primeiro cano da lista, muda o foco para o segundo
+             if len(canos) > 1 and passaros[0].x > (canos[0].x + cano[0].CANO.TOPO.get_width()):
+             indice_cano = 1
+        else:
+            rodando = False
+            break
 
-        # movimento
+        # movimentoS
         for passaro in passaros:
             passaro.mover()
         chao.mover()
