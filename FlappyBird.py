@@ -196,7 +196,7 @@ def desenhar_tela(tela, passaros, canos, chao, pontos):
     texto = FONTE_PONTOS.render(f"Pontuação: {pontos}", 1, (255, 255, 255))
     # posiciona o texto no canto superior direito da tela
     tela.blit(texto, (TELA_LARGURA - 10 - texto.get_width(), 10))
-      
+
     if ai_jogando:
         texto = FONTE_PONTOS.render(f"Geração: {geracao}", 1, (255, 255, 255))
         tela.blit(texto, (10, 10))
@@ -207,12 +207,21 @@ def desenhar_tela(tela, passaros, canos, chao, pontos):
     pygame.display.update()
 
 def main():
-    passaros = [Passaro(230, 350)]  # cria lista de pássaros (suporta múltiplos pássaros para IA no futuro)
-    chao = Chao(730)     # instancia o objeto do chão na altura 730
-    canos = [Cano(700)]  # cria lista de canos iniciando com o primeiro cano na posição 700
-    tela = pygame.display.set_mode((TELA_LARGURA, TELA_ALTURA))  # config a janela do jogo com as dimensões definidas
-    pontos = 0  # inicializa o contador de pontos
-    relogio = pygame.time.Clock()   # objeto de relógio para controlar a taxa de quadros (FPS)
+    global geracao
+    geracao += 1
+
+    if ai_jogando:
+        if ai_jogando:
+            redes = []         # Armazena as redes neurais criadas pelo NEAT para cada pássaro da população
+            lista_genoma = []  # Armazena as informações genéticas (pesos e conexões) de cada indivíduo
+            passaros = []      # Lista que conterá os objetos da classe passaro controlados pela IA
+    else:
+        passaros = [Passaro(230, 350)]  # cria lista de pássaros (suporta múltiplos pássaros para IA no futuro)
+        chao = Chao(730)     # instancia o objeto do chão na altura 730
+        canos = [Cano(700)]  # cria lista de canos iniciando com o primeiro cano na posição 700
+        tela = pygame.display.set_mode((TELA_LARGURA, TELA_ALTURA))  # config a janela do jogo com as dimensões definidas
+        pontos = 0  # inicializa o contador de pontos
+        relogio = pygame.time.Clock()   # objeto de relógio para controlar a taxa de quadros (FPS)
 
     rodando = True
     while rodando:
