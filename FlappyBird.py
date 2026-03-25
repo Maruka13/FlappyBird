@@ -206,15 +206,23 @@ def desenhar_tela(tela, passaros, canos, chao, pontos):
     # att a tela para exibir as mudanças deste frame
     pygame.display.update()
 
-def main():
+def main(genomas, config): #fitness function
     global geracao
     geracao += 1
 
     if ai_jogando:
         if ai_jogando:
-            redes = []         # Armazena as redes neurais criadas pelo NEAT para cada pássaro da população
-            lista_genoma = []  # Armazena as informações genéticas (pesos e conexões) de cada indivíduo
-            passaros = []      # Lista que conterá os objetos da classe passaro controlados pela IA
+            redes = []         # armazena as redes neurais criadas pelo NEAT para cada pássaro da população
+            lista_genoma = []  # armazena as informações genéticas (pesos e conexões) de cada indivíduo
+            passaros = []      # lista que conterá os objetos da classe passaro controlados pela IA
+            for _, genoma in genomas:
+                # cria a rede neural para o genoma específico baseado na configuração
+                rede = neat.nn.FeedForwardNetwork.create(genoma, config)
+                redes.append(rede)
+                # inicializa a pontuação de adaptação (fitness) do pássaro
+                genoma.fitness = 0
+                lista_genoma.append(genoma)
+                passaros.append(Passaro(230, 350))
     else:
         passaros = [Passaro(230, 350)]  # cria lista de pássaros (suporta múltiplos pássaros para IA no futuro)
         chao = Chao(730)     # instancia o objeto do chão na altura 730
